@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+
+    <!-- Fuentes estilo doodle / manuscritas de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Indie+Flower&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <main class="card-container">
+        <!-- Marco Ondulado -->
+        <div class="border-frame"></div>
+
+        <!-- Título animado tipo doodle -->
+        <header class="header-text">
+            <h1 class="title-doodle">
+                <span class="word">HAPPY</span>
+                <span class="sparkle">✶</span>
+                <span class="word">BIRTHDAY</span>
+            </h1>
+            <p class="subtitle-doodle">★ to you <span class="heart">♡</span></p>
+        </header>
+
+        <!-- Botón flotante para la música -->
+        <button id="btn-musica" class="music-toggle" title="Reproducir / Pausar música">
+            🎵
+        </button>
+
+        <!-- Elemento de audio con tu canción -->
+        <audio id="musica-fondo" loop>
+            <!-- Reemplaza 'audio/cancion.mp3' por la ruta de tu archivo de música -->
+            <source src="audio/Life -Goes-On.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Zona Central: Foto + Doodles alrededor -->
+        <section class="photo-section">
+            <!-- Doodles / Dibujos flotantes alrededor -->
+            <img src="images/flores.png" alt="Flor Doodle" class="doodle doodle-flower-1 float-slow">
+            <img src="images/estrella-vaquera.png" alt="Estrella Doodle" class="doodle doodle-flower-2 float-reverse">
+            <img src="images/gato.png" alt="Gato Doodle" class="doodle doodle-cat-2 pulse-glow">
+            <img src="images/estrellass.png" alt="Estrella Doodle" class="doodle doodle-star-1 pulse-glow">
+            <img src="images/vaca.png" alt="Vaca Doodle" class="doodle doodle-star-2 pulse-glow">
+            <img src="images/corazon.png" alt="Corazón Doodle" class="doodle doodle-heart-2 pulse-glow">
+
+            <!-- Foto de tu amiga -->
+            <div class="photo-wrapper">
+                <img src="images/foto-1.png" alt="Cumpleañera" class="main-photo">
+            </div>
+
+            <!-- Pastel de cumpleaños abajo de la foto -->
+            <div class="cake-wrapper interactive-click" id="cake-btn">
+                <img src="images/pastel-bn.png" alt="Pastel de cumpleaños" class="doodle doodle-cake float-soft">
+            </div>
+        </section>
+
+        <!-- Nombre Grande -->
+        <footer class="footer-section">
+            <h2 class="friend-name" id="nombre-amiga">ASTRID</h2>
+
+            <!-- Mensaje o botón interactivo en vez de la fecha -->
+            <button class="doodle-btn" id="btn-sorpresa">
+                ✨ ¡Haz clic para tu sorpresa! ✨
+            </button>
+
+            <div id="mensaje-oculto" class="message-box hidden">
+                <p>Amiga, espero tu vida este llena de bellos momentos, lugares por conocer, musica por vivir y mil y un
+                    cosas que te llenen el alma.
+                    Te deseo lo mejor y espero este día haya sido muy especial para ti. Recuerda que te quiero mucho y
+                    te extraño.
+                    <br> Eres una persona que admiro mucho y espero que la vida te de lo mejor que tenga, espero pronto
+                    salir juntas. Cuidate y recuerda que te quiero mucho. 🥳💖
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+/* Reset y variables de color */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-title: 'Caveat', cursive;
+  --font-doodle: 'Gaegu', cursive;
+  --font-hand: 'Patrick Hand', cursive;
+  --color-ink: #1a1a1a;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Fondo con textura tipo papel cremoso */
+  background-color: #f2ede4;
+  background-image: 
+    radial-gradient(#e3dac9 1px, transparent 1px),
+    linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 20px 20px, 100% 100%;
+  padding: 20px;
+  font-family: var(--font-hand);
+}
+
+/* Tarjeta Principal */
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  /*background: #fdfbf7;*/
+  background-image: url('images/hoja-flor.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 25px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 0 60px rgba(0, 0, 0, 0.02);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Marco Ondulado estilo doodle */
+.border-frame {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 4px solid var(--color-ink);
+  border-radius: 20px;
+  pointer-events: none;
+  /* Simulación de borde ondulado/hecho a mano mediante SVG o mask */
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.05);
+  animation: wiggle-border 4s ease-in-out infinite alternate;
+}
+
+/* Encabezado */
+.title-doodle {
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, 7vw, 2.8rem);
+  color: var(--color-ink);
+  letter-spacing: 2px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sparkle {
+  font-size: 2rem;
+  animation: spin-sparkle 3s linear infinite;
+}
+
+.subtitle-doodle {
+  font-family: var(--font-doodle);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
+
+.heart {
+  display: inline-block;
+  color: #d63384;
+  animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+/* Sección Foto y Doodles */
+.photo-section {
+  position: relative;
+  margin: 15px auto 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+.photo-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.photo-wrapper:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+.main-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%) contrast(110%);
+  drop-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Doodles flotantes alrededor */
+.doodle {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.doodle-flower-1 {
+  width: 130px;
+  top: 5px;
+  left: 15px;
+}
+
+.doodle-flower-2 {
+  width: 70px;
+  top: 110px;
+  left: 5px;
+}
+
+.doodle-cat-2 {
+  width: 90px;
+  top: 210px;
+  left: 5px;
+}
+
+.doodle-star-1 {
+  width: 80px;
+  top: 2px;
+  right: 25px;
+}
+
+.doodle-star-2 {
+  width: 80px;
+  top: 100px;
+  right: 10px;
+}
+
+.doodle-heart-2 {
+  width: 100px;
+  top: 190px;
+  right: 5px;
+}
+
+.cake-wrapper {
+  position: absolute;
+  bottom: -80px;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.doodle-cake {
+  position: relative;
+  width: 250px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.2s ease;
+}
+
+.cake-wrapper:hover .doodle-cake {
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* Pie de Tarjeta */
+.friend-name {
+  font-family: var(--font-doodle);
+  font-size: 3.2rem;
+  letter-spacing: 6px;
+  color: var(--color-ink);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Botón interactivo */
+.doodle-btn {
+  background: transparent;
+  border: 2px dashed var(--color-ink);
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: all 0.3s ease;
+}
+
+.doodle-btn:hover {
+  background: var(--color-ink);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.message-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 230, 238, 0.6);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #333;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Botón flotante de música */
+.music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fdfbf7;
+  border: 2px dashed var(--color-ink, #1a1a1a);
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1) rotate(10deg);
+  background: #ffe6ee;
+}
+
+/* Animación cuando la música está sonando */
+.music-toggle.playing {
+  animation: pulse-music 1.2s infinite alternate;
+  border-style: solid;
+  background: #ffd166;
+}
+
+@keyframes pulse-music {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+/* ANIMACIONES (FASE 3) */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-6deg); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15) rotate(8deg); }
+}
+
+@keyframes spin-sparkle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes wiggle-border {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(0.3deg) scale(0.998); }
+  100% { transform: rotate(-0.3deg) scale(1.002); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clases utilitarias de animación */
+.float-slow { animation: float-slow 3.5s ease-in-out infinite; }
+.float-reverse { animation: float-reverse 4s ease-in-out infinite; }
+.float-soft { animation: float-soft 3s ease-in-out infinite; }
+.pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
